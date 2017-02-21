@@ -7,18 +7,22 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
 
+  <form (ngSubmit)="onSubmit()" #calcForm="ngForm">
+    <ion-list>    
       <ion-item>
-        <ion-input floating type="number" [(ngModel)]="densidadeFinal" step="0.001" placeholder="Densidade Final" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"></ion-input>
+        <ion-input floating type="number" [(ngModel)]="mosto.densFinal" name="densFinal" #densFinal="ngModel" required
+          step="0.001" placeholder="Densidade Final" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
+        </ion-input>
       </ion-item>
-
       <ion-item>
-        <ion-input floating type="number" [(ngModel)]="densidadeInicial" step="0.001" placeholder="Densidade Inicial" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"></ion-input>
-      </ion-item>
-            
-      <button ion-button full (click)="calcularABV()">Calcular</button>
-
-</ion-list>
+        <ion-input floating type="number" [(ngModel)]="mosto.densInicial" name="densInicial" #densInicial="ngModel" required
+            step="0.001" placeholder="Densidade Inicial" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
+        </ion-input>
+      </ion-item>  
+      <button ion-button full type="submit" class="btn btn-success" [disabled]="!calcForm.form.valid">Calcular</button>
+      <button ion-button full type="button" class="btn btn-default" (click)="calcForm.reset()">Limpar</button>
+    </ion-list>
+  </form>
 </ion-content>
 

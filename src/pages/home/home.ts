@@ -2,23 +2,31 @@ import { Component } from '@angular/core';
 
 import { NavController, AlertController } from 'ionic-angular';
 
+import { Mosto }  from './../../app/mosto';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
 
-    public densidadeInicial;
-    public densidadeFinal;
     public abv;
+    public mosto: Mosto;
+    submitted = false;
     
     constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
-    
+      this.mosto = new Mosto();
+      this.abv = "";
     }
+
+    onSubmit() { 
+      this.submitted = true; 
+      this.calcularABV();
+  }
     
     calcularABV() :void {
-        
-        this.abv = (this.densidadeFinal - this.densidadeInicial) * 131;
+        //this.abv = (this.densidadeFinal - this.densidadeInicial) * 131;
+        this.abv = (this.mosto.densFinal - this.mosto.densInicial) * 131;
         this.presentAlert();
     }
     
@@ -29,9 +37,6 @@ export class HomePage {
         buttons: ['OK']
       });
       alert.present();
-      this.densidadeInicial = "";
-      this.densidadeFinal = "";
-      this.abv = "";
     }
 
 }
