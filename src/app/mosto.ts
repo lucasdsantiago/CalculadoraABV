@@ -4,4 +4,8 @@ export class Mosto{
 
     public densFinal;
 
+    public tempInicial: number;
+
+    public tempFinal: number;
+
 }

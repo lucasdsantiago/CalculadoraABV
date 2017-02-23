@@ -16,9 +16,25 @@
         </ion-input>
       </ion-item>
       <ion-item>
+        <ion-label>Temperatura Final</ion-label>
+        <ion-range min="5" max="40" step="1" snaps="true" color="danger" pin="true"
+          [(ngModel)]="mosto.tempFinal" name="tempFinal" #tempFinal="ngModel">
+          <ion-icon small range-left name="thermometer"></ion-icon>
+          <ion-icon range-right name="thermometer"></ion-icon>
+        </ion-range>
+      </ion-item>
+      <ion-item>
         <ion-input floating type="number" [(ngModel)]="mosto.densInicial" name="densInicial" #densInicial="ngModel" required
             step="0.001" placeholder="Densidade Inicial" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
         </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Temperatura Inicial</ion-label>
+        <ion-range min="5" max="40" step="1" snaps="true" color="danger" pin="true"
+          [(ngModel)]="mosto.tempInicial" name="tempInicial" #tempInicial="ngModel">
+          <ion-icon small range-left name="thermometer"></ion-icon>
+          <ion-icon range-right name="thermometer"></ion-icon>
+        </ion-range>
       </ion-item>  
       <button ion-button full type="submit" class="btn btn-success" [disabled]="!calcForm.form.valid">Calcular</button>
       <button ion-button full type="button" class="btn btn-default" (click)="calcForm.reset()">Limpar</button>
