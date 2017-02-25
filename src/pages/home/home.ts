@@ -17,8 +17,8 @@ export class HomePage {
     
     constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
       this.mosto = new Mosto();
-      //this.mosto.densInicial = 0.012;
-      //this.mosto.densFinal = 0.052;
+      //this.mosto.densInicial = 1.012;
+      //this.mosto.densFinal = 1.052;
       this.mosto.tempInicial = 20;
       this.mosto.tempFinal = 20;
       this.correcao = require('./../../../resources/json/correcao.json');
@@ -31,8 +31,8 @@ export class HomePage {
     }
     
     calcularABV() :void {
-        let correcaoFinal   = this.correcao.temperatura[this.mosto.tempFinal - 1];
-        let correcaoInicial = this.correcao.temperatura[this.mosto.tempInicial - 1];
+        let correcaoFinal   = this.correcao.temperatura[this.mosto.tempFinal];
+        let correcaoInicial = this.correcao.temperatura[this.mosto.tempInicial];
         let densFinalCorr   = parseFloat(this.mosto.densFinal) + (correcaoFinal);
         let densInicialCorr = parseFloat(this.mosto.densInicial) + (correcaoInicial);
 
@@ -43,7 +43,7 @@ export class HomePage {
     presentAlert() {
       let alert = this.alertCtrl.create({
         title: 'ABV',
-        subTitle: 'A cerveja possui ' + this.abv.toFixed(2) + "% de alcool.",
+        subTitle: 'Cerveja com ' + this.abv.toFixed(2) + "% de alcool.",
         buttons: ['OK']
       });
       alert.present();
