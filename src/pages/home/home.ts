@@ -49,4 +49,9 @@ export class HomePage {
       alert.present();
     }
 
+    onReset(){
+      this.mosto.tempInicial = 20;
+      this.mosto.tempFinal = 20;
+    }
+
 }

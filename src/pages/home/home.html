@@ -12,7 +12,7 @@
     <ion-list>    
       <ion-item>
         <ion-label>Densidade Inicial</ion-label>
-        <ion-input floating type="number" [(ngModel)]="mosto.densInicial" name="densInicial" #densInicial="ngModel" required
+        <ion-input type="number" [(ngModel)]="mosto.densInicial" name="densInicial" #densInicial="ngModel" required
             step="0.001" placeholder="Ex: 1.012" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" text-right>
         </ion-input>
       </ion-item>
@@ -26,7 +26,7 @@
       </ion-item>  
       <ion-item>
         <ion-label>Densidade Final</ion-label>
-        <ion-input floating type="number" [(ngModel)]="mosto.densFinal" name="densFinal" #densFinal="ngModel" required
+        <ion-input type="number" [(ngModel)]="mosto.densFinal" name="densFinal" #densFinal="ngModel" required
           step="0.001" placeholder="Ex: 1.063" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" text-right>
         </ion-input>
       </ion-item>
@@ -39,7 +39,7 @@
         </ion-range>
       </ion-item>
       <button ion-button full type="submit" class="btn btn-success" [disabled]="!calcForm.form.valid">Calcular</button>
-      <button ion-button full type="button" class="btn btn-default" (click)="calcForm.reset()">Limpar</button>
+      <button ion-button full type="button" class="btn btn-default" (click)="calcForm.reset();onReset();">Limpar</button>
     </ion-list>
   </form>
 </ion-content>
