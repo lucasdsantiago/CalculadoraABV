@@ -43,7 +43,7 @@ export class HomePage {
     presentAlert() {
       let alert = this.alertCtrl.create({
         title: 'ABV',
-        subTitle: 'Cerveja com ' + this.abv.toFixed(2) + "% de alcool.",
+        subTitle: 'Cerveja com ' + this.abv.toFixed(2) + "% de álcool.",
         buttons: ['OK']
       });
       alert.present();
